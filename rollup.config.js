@@ -1,4 +1,6 @@
 import typescript from "rollup-plugin-typescript2";
+import resolve from 'rollup-plugin-node-resolve';
+
 const ts = {declarationDir:'dec',useTsconfigDeclarationDir :false,declaration:true}
 export default [
 	{
@@ -8,7 +10,7 @@ export default [
 			name: "ReactAwesomeDate"
 		},
 		input: "./src/index.ts",
-		plugins: [typescript(ts)],
+		plugins: [resolve(),typescript(ts)],
 		external: ["react"],
 		globals: {
 			react: "React"
