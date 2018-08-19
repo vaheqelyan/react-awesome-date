@@ -1,0 +1,30 @@
+.rad-calendar {
+  font-family: -apple-system, SF UI Text, Helvetica Neue, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 15em;
+  flex-direction: column;
+}
+
+.rad-control {
+  display: flex;
+  flex: 1;
+}
+
+.rad-weeks {
+  flex: 1;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.rad-days {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.rad-week {
+  flex: 1;
+  text-align: center;
+}

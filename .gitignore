@@ -1,3 +1,9 @@
+dist/
+demos/
+build/
+.rpt2_cache/
+.cache/
+
 # Logs
 logs
 *.log

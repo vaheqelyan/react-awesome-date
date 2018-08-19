@@ -1,0 +1,50 @@
+.rad-weeks {
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.rad-ui-default--week {
+  font-size: 11px;
+}
+
+.rad-ui-default--control-month {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rad-ui-default--control-year {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rad-control {
+  padding: 6px 0px;
+  user-select: none;
+}
+
+.rad__control--arrow {
+  cursor: pointer;
+}
+
+.rad__days--day {
+  width: 34px;
+  text-align: center;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+}
+
+.rad__days--selected {
+  background-color: #007aff;
+  color: #fff;
+  border-radius: 100%;
+}
+
+.rad__days--day--highlight {
+  color: #b8b8b8;
+}

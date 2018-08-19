@@ -1,0 +1,14 @@
+{
+    "compilerOptions" : {
+        "module" : "umd",
+        "removeComments" : true,
+        "preserveConstEnums": true,
+        "sourceMap" : false,
+        "outDir" : "./build",
+        "target" : "es5",
+        "jsx" : "react",
+        "declaration" : true
+    },
+    "include" : ["./src/*", "./scr/utils/*"],
+    "types": ["react"]
+}
