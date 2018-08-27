@@ -1,22 +1,16 @@
-export interface IBuildMonthResult {
-  date: number;
-  day: string;
-  h: boolean;
-  month: number;
-  year: number;
-}
+/* Will work later on this function */
 
-function getDaysArray(year: number, month: number): IBuildMonthResult[] {
-  const names: string[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+function getDaysArray(year, month) {
+  const names = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   const date: Date = new Date(year, month - 1, 1);
-  const result: IBuildMonthResult[] = [];
+  const result = [];
   while (date.getMonth() === month - 1) {
     result.push({
       date: date.getDate(),
       day: names[date.getDay()],
       h: true,
       month,
-      year,
+      year
     });
 
     date.setDate(date.getDate() + 1);
@@ -24,27 +18,27 @@ function getDaysArray(year: number, month: number): IBuildMonthResult[] {
   return result;
 }
 
-function chunk_inefficient(chunkSize: number, arr: IBuildMonthResult[]): IBuildMonthResult[][] {
+function chunk_inefficient(chunkSize, arr) {
   const array = arr;
   return [].concat.apply(
     [],
-    array.map((elem: IBuildMonthResult, i: number) => {
+    array.map((elem, i) => {
       return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
-    }),
+    })
   );
 }
 
-export function buildMonth(year: number, month: number): IBuildMonthResult[][] {
-  const names: string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-  const date: Date = new Date(year, month - 1, 1);
-  const result: IBuildMonthResult[] = [];
+export function buildMonth(year, month) {
+  const names = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  const date = new Date(year, month - 1, 1);
+  const result = [];
   while (date.getMonth() === month - 1) {
     result.push({
       date: date.getDate(),
       day: names[date.getDay()],
       year,
       month,
-      h: false,
+      h: false
     });
 
     date.setDate(date.getDate() + 1);
@@ -71,7 +65,7 @@ export function buildMonth(year: number, month: number): IBuildMonthResult[][] {
   }
 
   const chunks = chunk_inefficient(7, result);
-  const {length} = chunks;
+  const { length } = chunks;
   if (month === 12) {
     if (length === 6) {
       const nextmonth: number = 7 - chunks[5].length;

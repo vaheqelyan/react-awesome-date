@@ -1,0 +1,7 @@
+.rad--ui--onlymonth {
+	display: flex;
+	align-items: center;
+	flex-basis: 120px;
+	justify-content: space-between;
+	margin: 0px auto;
+}

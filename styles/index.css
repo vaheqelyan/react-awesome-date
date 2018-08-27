@@ -8,11 +8,9 @@
 
 .rad-control {
   display: flex;
-  flex: 1;
 }
 
 .rad-weeks {
-  flex: 1;
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row;

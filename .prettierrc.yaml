@@ -1,3 +1,6 @@
 # .prettierrc
 printWidth: 100
-parser: typescript
+useTabs: false
+tabWidth: 2
+singleQuote: true
+parser: babylon
