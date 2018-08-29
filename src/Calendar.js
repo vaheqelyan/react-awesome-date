@@ -1,18 +1,22 @@
 import React from 'react';
 import { buildMonth } from './utils/buildMonth';
 import { ARRAY_DAYS, MONTH_NAMES } from './const';
-import { dayRenderer, headerRenderer, renderWeeks } from './ui/default/index';
+import { dayRenderer, headerRenderer, dateRenderer } from './ui/default/index';
+import cc from 'classcat';
 
 const current_date = new Date();
 
 class Calendar extends React.Component {
   static defaultProps = {
-    renderWeeks: renderWeeks,
+    dayRenderer: dayRenderer,
     saveSelection: true,
     headerRenderer: headerRenderer,
-    dayRenderer: dayRenderer,
+    dateRenderer: dateRenderer,
     year: current_date.getFullYear(),
-    month: current_date.getMonth() + 1
+    month: current_date.getMonth() + 1,
+    daysClassName: null,
+    headerClassName: null,
+    dateClassName: null
   };
 
   constructor(props) {
@@ -55,15 +59,6 @@ class Calendar extends React.Component {
   };
 
   next = () => {
-    // console.log(this.month + 1);
-    // if (this.month >= 12) {
-    //   this.year += 1;
-    //   this.month = 1;
-    // } else {
-    //   this.month += 1;
-    //   // console.log(this.month);
-    // }
-    // this.month += 1;
     if (this.month >= 12) {
       this.year += 1;
       this.month = 1;
@@ -173,7 +168,7 @@ class Calendar extends React.Component {
           pick: this.pick.bind(null, value)
         };
 
-        return this.props.dayRenderer(
+        return this.props.dateRenderer(
           value,
           index,
           iSelected,
@@ -182,12 +177,24 @@ class Calendar extends React.Component {
         );
       });
     });
-
     return (
       <div className="rad-calendar">
-        <div className="rad-control">{this.props.headerRenderer(this.date())}</div>
-        <div className="rad-weeks">{ARRAY_DAYS.map(this.props.renderWeeks)}</div>
-        <div className="rad-days">{daysJSX}</div>
+        <div
+          className={cc([
+            'rad-control',
+            { [this.props['headerClassName']]: this.props.headerClassName }
+          ])}
+        >
+          {this.props.headerRenderer(this.date())}
+        </div>
+        <div
+          className={cc(['rad-days', { [this.props['daysClassName']]: this.props.daysClassName }])}
+        >
+          {ARRAY_DAYS.map(this.props.dayRenderer)}
+        </div>
+        <div className={cc(['rad-date'], { [this.props.dateClassName]: this.props.dateClassName })}>
+          {daysJSX}
+        </div>
       </div>
     );
   }
