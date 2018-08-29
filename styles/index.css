@@ -10,19 +10,19 @@
   display: flex;
 }
 
-.rad-weeks {
+.rad-days {
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row;
 }
 
-.rad-days {
+.rad-date {
   display: flex;
   flex-wrap: wrap;
   cursor: pointer;
 }
 
-.rad-week {
+.rad-day {
   flex: 1;
   text-align: center;
 }
